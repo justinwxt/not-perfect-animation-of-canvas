@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script src="./tanke.js"></script>
+    </head>
+    <body>
+     <canvas id="cas" width = "1000" height="600"></canvas>
+      <input type="button" value="走" id="btn0">
+     <input type="button" value="上" id="btn1">
+     <input type="button" value="下" id="btn2">
+     <input type="button" value="左" id="btn3">
+     <input type="button" value="右" id="btn4">
+     <input type="button" value="加速" id="btn5">
+     <input type="button" value="减速" id="btn6">
+    <script>
+    var cas = document.getElementById("cas");
+    var ctx = cas.getContext("2d");
+    var btn0 = document.getElementById("btn0");
+    var btn1 = document.getElementById("btn1");
+    var btn2 = document.getElementById("btn2");
+    var btn3 = document.getElementById("btn3");
+    var btn4 = document.getElementById("btn4");
+    var btn5 = document.getElementById("btn5");
+    var btn6 = document.getElementById("btn6");
+    cas.style.backgroundColor = "pink";
+    var tank1 = new Tank({
+    	ox:100,
+    	oy:100
+    });
+    tank1.start(ctx);
+    btn0.onclick = function(){
+    	 tank1.move();
+    }
+   btn1.onclick = function(){
+   	 tank1.changeDir(3);
+   }
+   btn2.onclick = function(){
+   	 tank1.changeDir(0);
+   }
+   btn3.onclick = function(){
+   	 tank1.changeDir(1);
+   }
+   btn4.onclick = function(){
+   	 tank1.changeDir(2);
+   }
+    btn5.onclick = function(){
+   	 tank1.changeSpeed(1);
+   	 
+   }
+    btn6.onclick = function(){
+   	 tank1.changeSpeed(0);
+   	 console.log(tank1.speedX);
+   }
+   
+	</script>
+    </body>
+</html>
